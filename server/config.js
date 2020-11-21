@@ -4,6 +4,8 @@ require("dotenv").config();
 
 const PORT = +process.env.PORT || 3001;
 
+const API_KEY = process.env.API_KEY;
+
 // database is:
 //
 // - on Heroku, get from env var DATABASE_URL
@@ -20,5 +22,6 @@ if (process.env.NODE_ENV === "test") {
 
 module.exports = {
   PORT,
+  API_KEY,
   DB_URI
 };
