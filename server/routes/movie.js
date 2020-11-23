@@ -1,20 +1,40 @@
 /** Routes for movie info. */
 
-const Movie = require("../models/movies");
+const Movies = require("../models/movies");
 const express = require("express");
 const router = new express.Router();
 
 
-// router.post("/login", async function(req, res, next) {
-//   try {
-//     const user = await User.authenticate(req.body);
-//     const token = createToken(user);
-//     return res.json({ token });
-//   } catch (e) {
-//     console.error("Something went wrong in the login route")
-//     return next(e);
-//   }
-// });
+//get search results for movie
+router.get('/', async function (req, res, next) {
+  try {
+    let movies = await Movies.search(req.query.q);
 
+    return res.json({ movies });
+  } catch (err) {
+    return next(err);
+  }
+});
+
+//voting routes
+router.post('/thumbsup', async function (req, res, next) {
+  try {
+    let upvotes = await Movies.upvote(req.body.movie);
+
+    return res.json({ upvotes })
+  } catch (err) {
+    return next(err);
+  }
+})
+
+router.post('/thumbsdown', async function (req, res, next) {
+  try {
+    let downvotes = await Movies.downvote(req.body.movie);
+
+    return res.json({ downvotes })
+  } catch (err) {
+    return next(err);
+  }
+})
 
 module.exports = router;
