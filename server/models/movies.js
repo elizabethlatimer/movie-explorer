@@ -1,23 +1,16 @@
+import { movieDBSearch } from '../helpers/movieAPI';
+const db = require('../db');
+
+const expressError = require('../helpers/expressError');
 
 class Movies {
-  // static async search(searchString) {
-  //   let booksFound = await basicSearch(searchString);
+  static async search(query) {
+    let moviesFound = await movieDBSearch(query);
 
-  //   let bookData = booksFound.map(book => {
-  //     let smallBook = {};
-  //     smallBook.id = book.id;
-  //     smallBook.title = book.volumeInfo.title;
-  //     smallBook.authors = book.volumeInfo.authors;
-  //     smallBook.book_description = book.volumeInfo.description;
-  //     smallBook.publisher = book.volumeInfo.publisher;
-  //     smallBook.publish_date = book.volumeInfo.publishDate;
-  //     smallBook.thumbnail = book.imageLinks.thumbnail;
 
-  //     return smallBook;
-  //   });
 
-  //   return bookData;
-  // }
+    return movieData;
+  }
 
 }
 
