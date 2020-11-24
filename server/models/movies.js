@@ -1,4 +1,4 @@
-const { movieDBSearch } = require('../helpers/movieAPI');
+const { movieDBSearch, getMovieDirector } = require('../helpers/movieAPI');
 const db = require('../db');
 
 const expressError = require('../helpers/expressError');
@@ -20,6 +20,13 @@ class Movies {
       })
     });
 
+    //make another call to db to get movie directors
+
+    movieData.results = await Promise.all(movieData.results.map(async (movie) => {
+      let director = await Movies.getDirector(movie.id);
+      return { ...movie, director };
+    }))
+
     //check database for votes
 
     movieData.results = await Promise.all(movieData.results.map(async (movie) => {
@@ -38,6 +45,18 @@ class Movies {
        WHERE id = $1`, [id])).rows[0];
 
     return votes;
+  }
+
+  //helper function to get director for each movie
+  static async getDirector(id) {
+    try {
+      let director = await getMovieDirector(id);
+      console.log(director)
+      return director;
+    } catch (err) {
+      console.log(err)
+      return "Couldn't find director"
+    }
   }
 
   //functions for up and downvoting a movie and storing that info in the database
