@@ -13,5 +13,22 @@ async function movieDBSearch(query) {
   return movies.data;
 }
 
-module.exports = { movieDBSearch }
+async function getMovieDirector(movieID) {
+  try {
+    const crew = (await axios
+      .get(`${BASE_URL}movie/${movieID}/credits`,
+      { params: { api_key: API_KEY, language: "en-US"}}
+      )).data.crew;
+
+      console.log(crew)
+
+    const director = crew.filter(person => person.job === "Director");
+
+    return director[0].name;
+  } catch (err) {
+    return "No Director Found"
+  }
+}
+
+module.exports = { movieDBSearch, getMovieDirector }
 
