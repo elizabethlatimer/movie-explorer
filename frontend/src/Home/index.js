@@ -1,17 +1,29 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { InputGroup, Button, FormControl } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 import './Home.scss';
 import background from '../shared/images/background-home.jpg'
+import MovieContext from '../shared/helpers/movieContext';
 
 
-function Home({search}) {
-  const [formData, setFormData] = useState({search: ''});
+function Home() {
+  const [formData, setFormData] = useState({ search: '' });
+  const history = useHistory();
+  const { setCurrentQuery } = useContext(MovieContext);
 
   function handleChange(evt) {
     let { name, value } = evt.target;
     setFormData(formData => ({ ...formData, [name]: value }));
   }
+
+  function handleSubmit(evt) {
+    evt.preventDefault();
+    setCurrentQuery(formData.search);
+    history.push('/movies');
+  }
+
+
 
   return (
     <div className="Home">
@@ -28,7 +40,7 @@ function Home({search}) {
             name="search"
           />
           <InputGroup.Append>
-            <Button variant="primary">Search</Button>
+            <Button variant="primary" type="submit" onClick={handleSubmit}>Search</Button>
           </InputGroup.Append>
         </InputGroup>
       </div>
