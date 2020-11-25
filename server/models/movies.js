@@ -11,12 +11,20 @@ class Movies {
     //remove extra data from API response
     let movieData = { numResults: moviesFound.total_results };
     movieData.results = moviesFound.results.map(movie => {
+      let releaseDate = new Date(movie.release_date).toLocaleDateString(
+        'en-us',
+        {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        }
+      );
       return ({
         id: movie.id,
         title: movie.title,
         overview: movie.overview,
-        poster_path: `https://image.tmdb.org/t/p/w342${movie.poster_path}`,
-        releaseDate: movie.release_date
+        poster_path: `https://image.tmdb.org/t/p/w185${movie.poster_path}`,
+        releaseDate: releaseDate
       })
     });
 
