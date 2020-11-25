@@ -1,0 +1,14 @@
+.MovieListCard {
+    width: 90%;
+    margin: 10px auto;
+    a {
+        &:link {
+            color:black;
+            text-decoration:none;
+        }
+    }
+    .card-horizontal {
+        display: flex;
+        flex: 1 1 auto;
+    }
+}
