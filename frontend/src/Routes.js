@@ -6,6 +6,7 @@ import Home from './Home';
 import MovieDetail from './MovieDetail';
 import MoviesList from './MoviesList';
 
+
 function Routes() {
 
   return (
