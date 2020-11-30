@@ -23,7 +23,8 @@ class Movies {
         id: movie.id,
         title: movie.title,
         overview: movie.overview,
-        poster_path: `https://image.tmdb.org/t/p/w185${movie.poster_path}`,
+        thumbnailPoster: `https://image.tmdb.org/t/p/w185${movie.poster_path}`,
+        mainPoster: `https://image.tmdb.org/t/p/w342${movie.poster_path}`,
         releaseDate: releaseDate
       })
     });
@@ -59,10 +60,9 @@ class Movies {
   static async getDirector(id) {
     try {
       let director = await getMovieDirector(id);
-      console.log(director)
       return director;
     } catch (err) {
-      console.log(err)
+      console.error(err)
       return "Couldn't find director"
     }
   }

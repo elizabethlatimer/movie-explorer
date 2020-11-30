@@ -20,8 +20,6 @@ async function getMovieDirector(movieID) {
       { params: { api_key: API_KEY, language: "en-US"}}
       )).data.crew;
 
-      console.log(crew)
-
     const director = crew.filter(person => person.job === "Director");
 
     return director[0].name;

@@ -12,7 +12,7 @@ function MovieListCard({ movieDetails }) {
       <Card>
         <div className="card-horizontal">
           <div className="img-square-wrapper">
-            <img className="" src={movieDetails.poster_path} alt={`${movieDetails.title} poster`} />
+            <img className="" src={movieDetails.thumbnailPoster} alt={`${movieDetails.title} poster`} />
           </div>
           <Card.Body>
             <Card.Title>{movieDetails.title}</Card.Title>

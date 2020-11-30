@@ -14,12 +14,21 @@ function UserProvider() {
     setMovieList(old => movies);
   }
 
+  async function updateVotes(id, votes) {
+    let movieIndex = movieList.movies.results.findIndex(movie => movie.id === +id);
+    let newList = [...movieList.movies.results];
+    newList[movieIndex] = {...newList[movieIndex], votes}
+    setMovieList(oldState => {
+      return {...oldState, movies:{...oldState.movies, results: newList}}})
+  }
+
   return (
     <UserContext.Provider
       value={{
         movieList,
         search,
-        setCurrentQuery
+        setCurrentQuery,
+        updateVotes
         }}>
       <Routes />
     </UserContext.Provider>

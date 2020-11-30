@@ -19,7 +19,7 @@ router.get('/', async function (req, res, next) {
 //voting routes
 router.post('/thumbsup', async function (req, res, next) {
   try {
-    let upvotes = await Movies.upvote(req.body.movie);
+    let upvotes = await Movies.upvote(req.body);
 
     return res.json({ upvotes })
   } catch (err) {
@@ -29,7 +29,7 @@ router.post('/thumbsup', async function (req, res, next) {
 
 router.post('/thumbsdown', async function (req, res, next) {
   try {
-    let downvotes = await Movies.downvote(req.body.movie);
+    let downvotes = await Movies.downvote(req.body);
 
     return res.json({ downvotes })
   } catch (err) {
