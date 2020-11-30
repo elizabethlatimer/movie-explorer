@@ -1,11 +1,12 @@
 import React from 'react';
 import { Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function SiteNav() {
 
   return (
     <Navbar bg="dark" expand="lg">
-      <Navbar.Brand>Movie Explorer</Navbar.Brand>
+      <Navbar.Brand><Link to="/">Movie Explorer</Link></Navbar.Brand>
     </Navbar>
   )
 }
