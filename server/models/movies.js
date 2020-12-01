@@ -63,7 +63,7 @@ class Movies {
       return director;
     } catch (err) {
       console.error(err)
-      return "Couldn't find director"
+      return "Unknown"
     }
   }
 
