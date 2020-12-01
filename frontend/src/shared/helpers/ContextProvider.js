@@ -26,8 +26,10 @@ function UserProvider() {
     <UserContext.Provider
       value={{
         movieList,
+        setMovieList,
         search,
         setCurrentQuery,
+        currentQuery,
         updateVotes
         }}>
       <Routes />
