@@ -1,0 +1,21 @@
+.photoAttribution {
+    position: absolute;
+    height: 75px;
+    bottom:0;
+    width: 100%;
+    background-color: rgba(54, 52, 52, 1);
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    p {
+        margin: 5px 0px 0px 0px;
+    }
+    img {
+        max-width: 50px;
+        min-width: 50px;
+        position: absolute;
+        left: 40px;
+        z-index: 1;
+
+    }
+}
