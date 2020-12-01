@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { useParams, Link, Redirect } from 'react-router-dom';
 import { Card, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 import MovieContext from '../shared/helpers/movieContext';
 import backendAPI from '../shared/helpers/backendAPI';
@@ -16,7 +18,7 @@ function MovieDetail() {
   let downvote;
   let poster;
 
-  if(!movieList) {
+  if (!movieList) {
     return <Redirect to='/' />
   } else {
     movie = movieList.movies.results.filter(movie => movie.id === +id)[0];
@@ -28,13 +30,13 @@ function MovieDetail() {
     }
 
     upvote = async () => {
-      let votes = await backendAPI.upvote({id: id, title: movie.title})
-      updateVotes(id, {upvotes:votes.upvotes, downvotes: movie.votes?.downvotes || 0})
+      let votes = await backendAPI.upvote({ id: id, title: movie.title })
+      updateVotes(id, { upvotes: votes.upvotes, downvotes: movie.votes?.downvotes || 0 })
 
     }
     downvote = async () => {
-      let votes = await backendAPI.downvote({id, title: movie.title})
-      updateVotes(id, {upvotes:movie.votes?.upvotes || 0, downvotes: votes.downvotes})
+      let votes = await backendAPI.downvote({ id, title: movie.title })
+      updateVotes(id, { upvotes: movie.votes?.upvotes || 0, downvotes: votes.downvotes })
     }
   }
 
@@ -52,9 +54,10 @@ function MovieDetail() {
             <Card.Text>{movie.overview}</Card.Text>
             <Card.Text>Release date: {movie.releaseDate}</Card.Text>
             <Card.Text>
-              <Button size='sm' onClick={upvote}>{movie?.votes?.upvotes || 0} up</Button>
-              Vote
-              <Button size='sm' onClick={downvote}>down {movie?.votes?.downvotes || 0 }</Button></Card.Text>
+              <Button size='sm' onClick={upvote}>{movie?.votes?.upvotes || 0} <FontAwesomeIcon icon={faThumbsUp} /></Button>
+              {' '}Vote{' '}
+              <Button size='sm' onClick={downvote}> {movie?.votes?.downvotes || 0} <FontAwesomeIcon icon={faThumbsDown} /></Button>
+            </Card.Text>
           </Card.Body>
         </div>
       </Card>

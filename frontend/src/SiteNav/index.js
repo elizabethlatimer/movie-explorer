@@ -1,11 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Navbar, FormControl,Form, InputGroup, Button } from 'react-bootstrap';
+import { Navbar, FormControl, Form, InputGroup, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import MovieContext from '../shared/helpers/movieContext';
 
+const INITIAL_STATE = { search: '' };
+
 function SiteNav() {
-  const [formData, setFormData] = useState({ search: '' });
+  const [formData, setFormData] = useState(INITIAL_STATE);
 
   const history = useHistory();
   const { setCurrentQuery, setMovieList } = useContext(MovieContext);
@@ -19,6 +23,7 @@ function SiteNav() {
   function handleSubmit(evt) {
     evt.preventDefault();
     setCurrentQuery(formData.search);
+    setFormData(oldData => INITIAL_STATE);
     setMovieList(null);
     history.push('/movies');
   }
@@ -26,22 +31,24 @@ function SiteNav() {
   return (
     <Navbar bg="dark" expand="lg" className="justify-content-between">
       <Navbar.Brand><Link to="/">Movie Explorer</Link></Navbar.Brand>
-        <Form inline>
-          <InputGroup className="my-1">
-            <FormControl
-              placeholder="Find a Movie"
-              aria-label="Search for a Movie"
-              aria-describedby="basic-addon2"
-              value={formData.search}
-              onChange={handleChange}
-              name="search"
-              size='sm'
-            />
-            <InputGroup.Append>
-              <Button size='sm' variant="secondary" type="submit" onClick={handleSubmit}>Search</Button>
-            </InputGroup.Append>
-          </InputGroup>
-        </Form>
+      <Form inline>
+        <InputGroup className="my-1">
+          <FormControl
+            placeholder="Find a Movie"
+            aria-label="Search for a Movie"
+            aria-describedby="basic-addon2"
+            value={formData.search}
+            onChange={handleChange}
+            name="search"
+            size='sm'
+          />
+          <InputGroup.Append>
+            <Button size='sm' variant="secondary" type="submit" onClick={handleSubmit}>
+              <FontAwesomeIcon icon={faSearch} />
+            </Button>
+          </InputGroup.Append>
+        </InputGroup>
+      </Form>
     </Navbar>
   )
 }
