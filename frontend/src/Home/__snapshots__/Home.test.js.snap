@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Home"
+  >
+    <img
+      alt="movie projector shining light"
+      src="background-home.jpg"
+    />
+    <div
+      class="HomeSearch"
+    >
+      <form
+        class=""
+      >
+        <div
+          class="mb-3 input-group"
+        >
+          <input
+            aria-describedby="basic-addon2"
+            aria-label="Find a Movie"
+            class="form-control"
+            name="search"
+            placeholder="Find a Movie"
+            value=""
+          />
+          <div
+            class="input-group-append"
+          >
+            <button
+              class="btn btn-primary"
+              type="submit"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div
+      class="photoAttribution"
+    >
+      <p>
+        Background Photo by Jeremy Yap on Unsplash
+      </p>
+      <div>
+        <img
+          alt="The Movie Database Logo"
+          class="TMDBlogo"
+          src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_2-d537fb228cf3ded904ef09b136fe3fec72548ebc1fea3fbbd1ad9e36364db38b.svg"
+        />
+         This app uses the TMDb API but is not endorsed or certified by TMDb.
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

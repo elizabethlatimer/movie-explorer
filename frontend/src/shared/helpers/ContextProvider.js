@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Routes from '../../Routes';
-import UserContext from './movieContext';
+import MovieContext from './movieContext';
 import backendAPI from './backendAPI';
 
 
-function UserProvider() {
+function MovieProvider() {
 
   const [movieList, setMovieList] = useState(null);
   const [currentQuery, setCurrentQuery] = useState('');
@@ -23,7 +23,7 @@ function UserProvider() {
   }
 
   return (
-    <UserContext.Provider
+    <MovieContext.Provider
       value={{
         movieList,
         setMovieList,
@@ -33,8 +33,8 @@ function UserProvider() {
         updateVotes
         }}>
       <Routes />
-    </UserContext.Provider>
+    </MovieContext.Provider>
   );
 };
 
-export default UserProvider;
+export default MovieProvider;

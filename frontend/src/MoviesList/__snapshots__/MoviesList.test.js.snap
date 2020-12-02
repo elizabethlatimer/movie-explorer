@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches the loading snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="spinner-border"
+    role="status"
+  >
+    <span
+      class="sr-only"
+    >
+      Loading...
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`matches the results snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="MoviesList"
+  >
+    <h2>
+      Search Results
+    </h2>
+    <div
+      class="MovieListCard"
+    >
+      <a
+        href="/movies/618354"
+      >
+        <div
+          class="card"
+        >
+          <div
+            class="card-horizontal"
+          >
+            <div
+              class="img-square-wrapper"
+            >
+              <img
+                alt="Superman: Man of Tomorrow poster"
+                class=""
+                src="https://image.tmdb.org/t/p/w185/6Bbq8qQWpoApLZYWFFAuZ1r2gFw.jpg"
+              />
+            </div>
+            <div
+              class="card-body"
+            >
+              <div
+                class="card-title h5"
+              >
+                Superman: Man of Tomorrow
+              </div>
+              <p
+                class="card-text"
+              >
+                It’s the dawn of a new age of heroes, and Metropolis has just met its first. But as Daily Planet intern Clark Kent – working alongside reporter Lois Lane – secretly wields his alien powers of flight, super-strength and x-ray vision in the battle for good, there’s even greater trouble on the horizon.
+              </p>
+              <p
+                class="card-text"
+              >
+                Release date: August 22, 2020
+              </p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;
