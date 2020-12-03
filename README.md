@@ -1,6 +1,8 @@
 # Movie Explorer
 This project is a toy project that makes use of the [The Movie Database API](https://www.themoviedb.org/) to allow users to search for a movie, see its details, and vote.
 
+![](movie-explorer-demo.gif)
+
 ## Table of Contents
 * [Core Technologies Used](#technologies)
 * [Getting Started on the server](#getting-started-on-the-server)
