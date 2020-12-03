@@ -4,6 +4,7 @@ import {Spinner} from 'react-bootstrap';
 
 import MovieListCard from '../MovieListCard';
 import MovieContext from '../shared/helpers/movieContext';
+import './MoviesList.scss';
 
 
 function MoviesList() {
@@ -11,7 +12,7 @@ function MoviesList() {
 
   useEffect(() => {
     search();
-  }, [])
+  }, [movieList])
 
 
   if (!currentQuery) {
@@ -19,7 +20,7 @@ function MoviesList() {
   } else if (movieList?.movies) {
     return (
       <div className="MoviesList">
-        <h2>Search Results</h2>
+        <h2 className='page-header'>Search Results</h2>
         {movieList.movies.results[0]
           ? movieList.movies.results.map(movie => <MovieListCard movieDetails={movie} key={movie.id} />)
           : <p>{`We couldn't find any results for ${currentQuery}`}</p>}
@@ -27,9 +28,12 @@ function MoviesList() {
     )
   } else {
     return (
-      <Spinner animation="border" role="status">
+      <div className="MoviesList">
+         <Spinner className="spinner" animation="border" role="status" variant='primary'>
         <span className="sr-only">Loading...</span>
       </Spinner>
+      </div>
+
     )
   }
 }

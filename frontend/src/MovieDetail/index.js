@@ -42,8 +42,10 @@ function MovieDetail() {
 
   return (
     <div className="MovieDetail">
-      <Link to='/movies'>Back to results</Link>
-      <Card>
+      <div className="link-left">
+        <Link to='/movies'>Back to results</Link>
+      </div>
+      <Card className="MovieDetailCard">
         <div className="card-horizontal">
           <div className="img-square-wrapper">
             <img className="" src={poster} alt={`${movie.title} poster`} />

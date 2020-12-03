@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import MovieContext from '../shared/helpers/movieContext';
+import './SiteNav.scss';
 
 const INITIAL_STATE = { search: '' };
 
@@ -29,8 +30,8 @@ function SiteNav() {
   }
 
   return (
-    <Navbar bg="dark" expand="lg" className="justify-content-between">
-      <Navbar.Brand><Link to="/">Movie Explorer</Link></Navbar.Brand>
+    <Navbar bg="dark" expand="lg" className="SiteNav justify-content-between">
+      <Navbar.Brand className="logo"><Link to="/">Movie Explorer</Link></Navbar.Brand>
       <Form inline>
         <InputGroup className="my-1">
           <FormControl

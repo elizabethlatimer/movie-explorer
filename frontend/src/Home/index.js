@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Form, InputGroup, Button, FormControl } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 

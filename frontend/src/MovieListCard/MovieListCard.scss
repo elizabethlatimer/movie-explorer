@@ -14,4 +14,26 @@
     img {
         max-width: 185px;
     }
+    .card-body {
+        box-sizing: border-box;
+    }
+    .line-clamp {
+        display:block;
+        line-height: 1.5em;
+        position:relative;
+        height: 9em;
+        overflow: hidden;
+        &:after {
+            content: "";
+            text-align: right;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 70%;
+            height: 1.5em;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 80%);
+
+        }
+    }
+
 }

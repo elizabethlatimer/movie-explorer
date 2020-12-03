@@ -22,8 +22,8 @@ function MovieListCard({ movieDetails }) {
           </div>
           <Card.Body>
             <Card.Title>{movieDetails.title}</Card.Title>
-            <Card.Text>{movieDetails.overview}</Card.Text>
             <Card.Text>Release date: {movieDetails.releaseDate}</Card.Text>
+            <Card.Text className='line-clamp'>{movieDetails.overview}</Card.Text>
           </Card.Body>
         </div>
       </Card>
