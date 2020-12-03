@@ -83,6 +83,8 @@ To run tests on the server:
 * Responsive styling
 * Screen-reader accessibility
 * Add list of related movies to Movie Detail page
+* Storage of past queries, so navigating back will show you results of previous searches. Currently navigating back will bring you back to the previous pages, but display the most recent search results.
+* Consider implementing a restriction to the number of votes a visitor to the page can give to a movie.
 
 ## Other Available Scripts
 
