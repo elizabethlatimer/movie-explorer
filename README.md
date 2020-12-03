@@ -33,11 +33,11 @@ For data this app relies on:
 - [The Movie Database API](https://www.themoviedb.org/)
 
 ## Getting Started on the server
-```diff
-- IMPORTANT: This project requires an API key for The Movie Database which is not included in this repo. Please follow the instructions below to obtain one and include it in the correct file.
 
-- This project assumes you have PostgreSQL installed locally.
-```
+### **IMPORTANT: This project requires an API key for The Movie Database which is not included in this repo. Please follow the instructions below to obtain one and include it in the correct file.**
+
+### **This project assumes you have PostgreSQL installed locally.**
+
 1. Clone the repository
 
 From the project root directory in the terminal, input the following commands:
