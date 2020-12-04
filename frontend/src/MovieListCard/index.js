@@ -22,7 +22,7 @@ function MovieListCard({ movieDetails }) {
             </div>
             <Card.Body>
               <Card.Title>{movieDetails.title}</Card.Title>
-              <Card.Text>Released: {movieDetails.releaseDate.includes("Invalid") ? "Unknown" : movieDetails.releaseDate}</Card.Text>
+              <Card.Text>Released: {movieDetails.releaseDate === "Invalid Date" ? "Unknown" : movieDetails.releaseDate}</Card.Text>
               <Card.Text className='line-clamp'>{movieDetails.overview}</Card.Text>
             </Card.Body>
           </div>

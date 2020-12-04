@@ -57,7 +57,7 @@ function MovieDetail() {
             <Card.Title>{movie.title}</Card.Title>
             <Card.Text>Directed by: {movie.director}</Card.Text>
             <Card.Text>{movie.overview}</Card.Text>
-            <Card.Text>Release date: {movie.releaseDate}</Card.Text>
+            <Card.Text>Release date: {movie.releaseDate === "Invalid Date" ? "Unknown" : movie.releaseDate}</Card.Text>
             <Card.Text>
               <Button size='sm' onClick={upvote}>{movie?.votes?.upvotes || 0}
                 <FontAwesomeIcon icon={faThumbsUp} />
