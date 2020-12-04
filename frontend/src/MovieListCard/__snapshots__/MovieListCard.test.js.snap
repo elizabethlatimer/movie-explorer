@@ -34,12 +34,12 @@ exports[`matches the snapshot 1`] = `
             <p
               class="card-text"
             >
-              description here
+              Released: Jan 1, 2021
             </p>
             <p
-              class="card-text"
+              class="line-clamp card-text"
             >
-              Release date: Jan 1, 2021
+              description here
             </p>
           </div>
         </div>

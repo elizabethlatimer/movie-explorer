@@ -3,14 +3,18 @@
 exports[`matches the loading snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="spinner-border"
-    role="status"
+    class="MoviesList"
   >
-    <span
-      class="sr-only"
+    <div
+      class="spinner spinner-border text-primary"
+      role="status"
     >
-      Loading...
-    </span>
+      <span
+        class="sr-only"
+      >
+        Loading...
+      </span>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -20,7 +24,9 @@ exports[`matches the results snapshot 1`] = `
   <div
     class="MoviesList"
   >
-    <h2>
+    <h2
+      class="page-header"
+    >
       Search Results
     </h2>
     <div
@@ -55,12 +61,12 @@ exports[`matches the results snapshot 1`] = `
               <p
                 class="card-text"
               >
-                It’s the dawn of a new age of heroes, and Metropolis has just met its first. But as Daily Planet intern Clark Kent – working alongside reporter Lois Lane – secretly wields his alien powers of flight, super-strength and x-ray vision in the battle for good, there’s even greater trouble on the horizon.
+                Released: August 22, 2020
               </p>
               <p
-                class="card-text"
+                class="line-clamp card-text"
               >
-                Release date: August 22, 2020
+                It’s the dawn of a new age of heroes, and Metropolis has just met its first. But as Daily Planet intern Clark Kent – working alongside reporter Lois Lane – secretly wields his alien powers of flight, super-strength and x-ray vision in the battle for good, there’s even greater trouble on the horizon.
               </p>
             </div>
           </div>

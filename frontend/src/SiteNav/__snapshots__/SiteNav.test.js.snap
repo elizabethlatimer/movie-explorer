@@ -3,10 +3,10 @@
 exports[`matches the snapshot 1`] = `
 <DocumentFragment>
   <nav
-    class="justify-content-between navbar navbar-expand-lg navbar-light bg-dark"
+    class="SiteNav justify-content-between navbar navbar-expand-lg navbar-light bg-dark"
   >
     <span
-      class="navbar-brand"
+      class="logo navbar-brand"
     >
       <a
         href="/"
