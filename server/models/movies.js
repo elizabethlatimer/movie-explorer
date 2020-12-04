@@ -10,6 +10,8 @@ class Movies {
 
     //remove extra data from API response
     let movieData = { numResults: moviesFound.total_results };
+
+    //format date nicely
     movieData.results = moviesFound.results.map(movie => {
       let releaseDate = new Date(movie.release_date).toLocaleDateString(
         'en-us',
@@ -19,6 +21,7 @@ class Movies {
           day: 'numeric'
         }
       );
+
       return ({
         id: movie.id,
         title: movie.title,
@@ -26,18 +29,16 @@ class Movies {
         thumbnailPoster: `https://image.tmdb.org/t/p/w185${movie.poster_path}`,
         mainPoster: `https://image.tmdb.org/t/p/w342${movie.poster_path}`,
         releaseDate: releaseDate
-      })
+      });
     });
 
-    //make another call to db to get movie directors
-
+    //make another call to external db to get movie directors
     movieData.results = await Promise.all(movieData.results.map(async (movie) => {
       let director = await Movies.getDirector(movie.id);
       return { ...movie, director };
     }))
 
     //check database for votes
-
     movieData.results = await Promise.all(movieData.results.map(async (movie) => {
       let votes = await Movies.getVotes(movie.id);
 
@@ -62,8 +63,8 @@ class Movies {
       let director = await getMovieDirector(id);
       return director;
     } catch (err) {
-      console.error(err)
-      return "Unknown"
+      //If no director is found, and error will throw, return Unknown for movie data
+      return "Unknown";
     }
   }
 
@@ -82,13 +83,13 @@ class Movies {
         SET upvotes = $1
         WHERE id = $2
         RETURNING upvotes`, [recordExists[0].upvotes += 1, movie.id]
-      )
+      );
     } else {
       voteCount = await db.query(
         `INSERT INTO movies
         VALUES ($1, $2, $3, $4)
         RETURNING upvotes`, [movie.id, movie.title, 1, 0]
-      )
+      );
     }
     return voteCount.rows[0].upvotes;
   }
@@ -106,18 +107,16 @@ class Movies {
         SET downvotes = $1
         WHERE id = $2
         RETURNING downvotes`, [recordExists[0].downvotes += 1, movie.id]
-      )
+      );
     } else {
       voteCount = await db.query(
         `INSERT INTO movies
         VALUES ($1, $2, $3, $4)
         RETURNING downvotes`, [movie.id, movie.title, 0, 1]
-      )
+      );
     }
     return voteCount.rows[0].downvotes;
   }
-
-
 }
 
 module.exports = Movies;

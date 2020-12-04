@@ -13,7 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 // to allow cors between frontend and backend
 app.use(cors());
 
-
 const movieRoutes = require('./routes/movie');
 
 app.use("/movie", movieRoutes);
