@@ -4,11 +4,11 @@ This project is a toy project that makes use of the [The Movie Database API](htt
 ![](movie-explorer-demo.gif)
 
 ## Table of Contents
-* [Core Technologies Used](#technologies)
+* [Core Technologies Used](#technologies-used)
 * [Getting Started on the server](#getting-started-on-the-server)
 * [Getting Started on the client](#getting-started-on-the-client)
 * [Running Tests](#running-tests)
-* [Other Scripts](#other-scripts)
+* [Other Scripts](#other-available-scripts)
 * [Planned Improvements](#planned-improvements)
 * [Learn More About Create React App](#learn-more-about-create-react-app)
 
@@ -81,6 +81,7 @@ To run tests on the server:
 ## Planned Improvements
 * Improved client side error handling
 * Improved server side error handling
+* Expand test coverage
 * Route specific nav bar rendering - specifically no search in navbar on homepage
 * Responsive styling
 * Screen-reader accessibility
