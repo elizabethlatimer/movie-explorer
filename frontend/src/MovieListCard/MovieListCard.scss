@@ -1,28 +1,37 @@
 .MovieListCard {
     width: 90%;
     margin: 10px auto;
+
     a {
         &:link, &:visited {
             color:black;
             text-decoration:none;
         }
     }
+
     .card-horizontal {
         display: flex;
         flex: 1 1 auto;
     }
+
     img {
         max-width: 185px;
     }
+
     .card-body {
         box-sizing: border-box;
     }
+
+    /*Keep max height of description block consistent. Set line height, and height == line height * number
+    of lines desired, hide overflow. Then create a pseudo element to fade out the last line to indicate
+    content continues*/
     .line-clamp {
         display:block;
         line-height: 1.5em;
         position:relative;
         height: 9em;
         overflow: hidden;
+
         &:after {
             content: "";
             text-align: right;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { render } from "@testing-library/react";
+
 import Home from './index';
 import MovieContext from '../shared/helpers/movieContext'
 

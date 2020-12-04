@@ -1,5 +1,6 @@
-import './App.scss';
 import ContextProvider from '../shared/helpers/ContextProvider';
+
+import './App.scss';
 
 function App() {
   return (

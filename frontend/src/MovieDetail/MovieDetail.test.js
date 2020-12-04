@@ -1,8 +1,9 @@
 import React from 'react';
+import { MemoryRouter, Route } from 'react-router-dom';
 import { render } from "@testing-library/react";
+
 import MovieDetail from './index';
 import MovieContext from '../shared/helpers/movieContext'
-import { MemoryRouter, Route } from 'react-router-dom';
 
 const values = {
   movieList: {
@@ -19,7 +20,8 @@ const values = {
           "director": "Chris Palmer"
         }]
     }
-  }, updateVotes: () => jest.fn()
+  },
+  updateVotes: () => jest.fn()
 };
 
 test('renders without crashing', () => {

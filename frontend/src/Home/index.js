@@ -2,16 +2,17 @@ import React, { useState, useContext } from 'react';
 import { Form, InputGroup, Button, FormControl } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
-import './Home.scss';
 import Footer from '../Footer';
-import background from '../shared/images/background-home.jpg'
 import MovieContext from '../shared/helpers/movieContext';
+
+import background from '../shared/images/background-home.jpg';
+import './Home.scss';
 
 
 function Home() {
   const [formData, setFormData] = useState({ search: '' });
-  const history = useHistory();
   const { setCurrentQuery, setMovieList } = useContext(MovieContext);
+  const history = useHistory();
 
   function handleChange(evt) {
     let { name, value } = evt.target;
@@ -24,8 +25,6 @@ function Home() {
     setMovieList(null);
     history.push('/movies');
   }
-
-
 
   return (
     <div className="Home">
@@ -47,7 +46,6 @@ function Home() {
             </InputGroup.Append>
           </InputGroup>
         </Form>
-
       </div>
       <Footer />
     </div>

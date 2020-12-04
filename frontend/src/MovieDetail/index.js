@@ -6,6 +6,7 @@ import { faThumbsUp, faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 import MovieContext from '../shared/helpers/movieContext';
 import backendAPI from '../shared/helpers/backendAPI';
+
 import './MovieDetail.scss';
 
 
@@ -18,11 +19,13 @@ function MovieDetail() {
   let downvote;
   let poster;
 
+  //if a search hasn't been completed, redirect to home, else set up logic for component
   if (!movieList) {
     return <Redirect to='/' />
   } else {
     movie = movieList.movies.results.filter(movie => movie.id === +id)[0];
 
+    //if movie data has no poster, use default link instead
     if (movie.mainPoster.includes('null')) {
       poster = 'https://www.joblo.com/assets/images/joblo/database-specific-img-225x333.jpg';
     } else {
@@ -56,17 +59,19 @@ function MovieDetail() {
             <Card.Text>{movie.overview}</Card.Text>
             <Card.Text>Release date: {movie.releaseDate}</Card.Text>
             <Card.Text>
-              <Button size='sm' onClick={upvote}>{movie?.votes?.upvotes || 0} <FontAwesomeIcon icon={faThumbsUp} /></Button>
+              <Button size='sm' onClick={upvote}>{movie?.votes?.upvotes || 0}
+                <FontAwesomeIcon icon={faThumbsUp} />
+              </Button>
               {' '}Vote{' '}
-              <Button size='sm' onClick={downvote}> {movie?.votes?.downvotes || 0} <FontAwesomeIcon icon={faThumbsDown} /></Button>
+              <Button size='sm' onClick={downvote}> {movie?.votes?.downvotes || 0}
+                <FontAwesomeIcon icon={faThumbsDown} />
+              </Button>
             </Card.Text>
           </Card.Body>
         </div>
       </Card>
     </div>
   )
-
-
 }
 
 export default MovieDetail;

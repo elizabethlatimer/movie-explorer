@@ -1,9 +1,9 @@
-import axios from "axios"
+import axios from "axios";
 const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 class backendAPI {
+  //assembles axios request with appropriate verbs and params or data
   static async request(endpoint, paramsOrData = {}, verb = "get") {
-    // console.debug("API Call:", endpoint, paramsOrData, verb);
     try {
       return (await axios({
         method: verb,
@@ -19,6 +19,7 @@ class backendAPI {
     }
   }
 
+  //takes query string and returns an object with number of results and array of movie detail objects
   static async searchMovies(query) {
     let res = await this.request('movie', {q: query});
     return res;

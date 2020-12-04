@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 
 import './MovieListCard.scss';
 
@@ -14,20 +14,20 @@ function MovieListCard({ movieDetails }) {
 
   return (
     <div className="MovieListCard">
-    <Link to={`/movies/${movieDetails.id}`}>
-      <Card>
-        <div className="card-horizontal">
-          <div className="img-square-wrapper">
-            <img className="" src={poster} alt={`${movieDetails.title} poster`} />
+      <Link to={`/movies/${movieDetails.id}`}>
+        <Card>
+          <div className="card-horizontal">
+            <div className="img-square-wrapper">
+              <img className="" src={poster} alt={`${movieDetails.title} poster`} />
+            </div>
+            <Card.Body>
+              <Card.Title>{movieDetails.title}</Card.Title>
+              <Card.Text>Released: {movieDetails.releaseDate.includes("Invalid") ? "Unknown" : movieDetails.releaseDate}</Card.Text>
+              <Card.Text className='line-clamp'>{movieDetails.overview}</Card.Text>
+            </Card.Body>
           </div>
-          <Card.Body>
-            <Card.Title>{movieDetails.title}</Card.Title>
-            <Card.Text>Release date: {movieDetails.releaseDate}</Card.Text>
-            <Card.Text className='line-clamp'>{movieDetails.overview}</Card.Text>
-          </Card.Body>
-        </div>
-      </Card>
-    </Link>
+        </Card>
+      </Link>
     </div>
   )
 }

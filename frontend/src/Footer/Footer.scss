@@ -1,17 +1,20 @@
 .photoAttribution {
     position: absolute;
     height: 65px;
-    bottom:0;
+    bottom: 0;
     width: 100%;
     background-color: rgba(54, 52, 52, 1);
     color: #fff;
     padding: 5px;
     font-size: 14px;
+
     p {
         margin: 0px 0px 0px 0px;
     }
+
     .api-attr {
         position: relative;
+
         img {
             max-width: 50px;
             min-width: 50px;

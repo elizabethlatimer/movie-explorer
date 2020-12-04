@@ -1,18 +1,20 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useCallback } from 'react';
 import { Redirect } from 'react-router-dom';
-import {Spinner} from 'react-bootstrap';
+import { Spinner } from 'react-bootstrap';
 
 import MovieListCard from '../MovieListCard';
 import MovieContext from '../shared/helpers/movieContext';
+
 import './MoviesList.scss';
 
 
 function MoviesList() {
   const { movieList, search, currentQuery } = useContext(MovieContext);
+  const executeSearch = useCallback(() => { search(); }, [search])
 
   useEffect(() => {
-    search();
-  }, [movieList])
+    executeSearch();
+  }, [movieList, executeSearch]);
 
 
   if (!currentQuery) {
@@ -29,9 +31,9 @@ function MoviesList() {
   } else {
     return (
       <div className="MoviesList">
-         <Spinner className="spinner" animation="border" role="status" variant='primary'>
-        <span className="sr-only">Loading...</span>
-      </Spinner>
+        <Spinner className="spinner" animation="border" role="status" variant='primary'>
+          <span className="sr-only">Loading...</span>
+        </Spinner>
       </div>
 
     )

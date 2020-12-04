@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import MovieContext from '../shared/helpers/movieContext';
+
 import './SiteNav.scss';
 
 const INITIAL_STATE = { search: '' };
@@ -23,15 +24,21 @@ function SiteNav() {
 
   function handleSubmit(evt) {
     evt.preventDefault();
+    //set the current query in app state
     setCurrentQuery(formData.search);
+    //clear form
     setFormData(oldData => INITIAL_STATE);
+    //clear MovieList so old data won't be shown while new search is executed
     setMovieList(null);
+    //push to search results page where search will be executed
     history.push('/movies');
   }
 
   return (
     <Navbar bg="dark" expand="lg" className="SiteNav justify-content-between">
-      <Navbar.Brand className="logo"><Link to="/">Movie Explorer</Link></Navbar.Brand>
+      <Navbar.Brand className="logo">
+        <Link to="/">Movie Explorer</Link>
+      </Navbar.Brand>
       <Form inline>
         <InputGroup className="my-1">
           <FormControl

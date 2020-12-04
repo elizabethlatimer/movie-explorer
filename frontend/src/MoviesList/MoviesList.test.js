@@ -1,8 +1,9 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import { render } from "@testing-library/react";
+
 import MovieList from './index';
 import MovieContext from '../shared/helpers/movieContext'
-import { BrowserRouter, Route } from 'react-router-dom';
 
 const values = {
   movieList: {

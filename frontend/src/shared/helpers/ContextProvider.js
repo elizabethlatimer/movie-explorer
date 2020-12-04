@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+
 import Routes from '../../Routes';
 import MovieContext from './movieContext';
 import backendAPI from './backendAPI';
 
-
+//Provider of state and functions used across the app
 function MovieProvider() {
-
   const [movieList, setMovieList] = useState(null);
   const [currentQuery, setCurrentQuery] = useState('');
 
@@ -17,9 +17,12 @@ function MovieProvider() {
   async function updateVotes(id, votes) {
     let movieIndex = movieList.movies.results.findIndex(movie => movie.id === +id);
     let newList = [...movieList.movies.results];
-    newList[movieIndex] = {...newList[movieIndex], votes}
+
+    newList[movieIndex] = { ...newList[movieIndex], votes };
+
     setMovieList(oldState => {
-      return {...oldState, movies:{...oldState.movies, results: newList}}})
+      return { ...oldState, movies: { ...oldState.movies, results: newList } }
+    });
   }
 
   return (
@@ -31,7 +34,7 @@ function MovieProvider() {
         setCurrentQuery,
         currentQuery,
         updateVotes
-        }}>
+      }}>
       <Routes />
     </MovieContext.Provider>
   );
